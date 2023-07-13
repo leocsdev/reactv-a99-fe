@@ -47,6 +47,7 @@ function App() {
     fetchData();
   }, [isLoading]);
 
+  // Render the list when searching.
   useEffect(() => {
     setIsLoading(true);
 
@@ -67,7 +68,6 @@ function App() {
     setIsLoading(false);
   };
 
-  console.log(filteredLaunches);
   return (
     <main className='bg-slate-100 p-8'>
       <SearchForm onChangeHandler={onSearchChange} />
