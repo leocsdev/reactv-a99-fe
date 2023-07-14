@@ -8,19 +8,22 @@ export default function LaunchList({
   error,
 }) {
   return (
-    <>
+    <div className='flex flex-col items-center'>
       <InfiniteScroll
         dataLength={dataLength}
         next={next}
         hasMore={hasMore}
-        loader={<p>Loading...</p>}
-        endMessage={<p>no more data to load</p>}
+        loader={<img src='/spinner.gif' className='w-24 mx-auto' />}
+        endMessage={
+          <p className='text-center p-4 text-slate-400'>No more data to load</p>
+        }
+        className=''
       >
         <ul>
           {launches.map((launch, index) => (
             <li
               key={`${launch.payloads[0]}-${index}`}
-              className='flex p-8 items-center max-w-4xl mx-auto bg-white rounded-md'
+              className='flex p-8 items-center'
             >
               <img
                 src={launch.links.patch.small}
@@ -40,6 +43,6 @@ export default function LaunchList({
         </ul>
       </InfiniteScroll>
       {error && <p>Error: {error.message}</p>}
-    </>
+    </div>
   );
 }

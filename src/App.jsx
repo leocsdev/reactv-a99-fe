@@ -70,14 +70,18 @@ function App() {
 
   return (
     <main className='bg-slate-100 p-8'>
-      <SearchForm onChangeHandler={onSearchChange} />
-      <LaunchList
-        launches={filteredLaunches}
-        dataLength={filteredLaunches.length}
-        next={fetchData}
-        hasMore={hasNextPage}
-        error={error}
-      />
+      <header className='max-w-4xl mx-auto bg-white rounded-sm mb-4'>
+        <SearchForm onChangeHandler={onSearchChange} />
+      </header>
+      <section className='max-w-4xl mx-auto bg-white rounded-sm'>
+        <LaunchList
+          launches={filteredLaunches}
+          dataLength={filteredLaunches.length}
+          next={fetchData}
+          hasMore={hasNextPage}
+          error={error}
+        />
+      </section>
     </main>
   );
 }
